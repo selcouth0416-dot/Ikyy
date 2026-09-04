@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Linden — Deutsch A1–A2</title>
+  <meta name="description" content="Studio belajar bahasa Jerman A1–A2: tata bahasa Goethe, verba lengkap, audio, dan kuis interaktif." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,480;9..144,560&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <a class="brand" href="#" data-page="beranda">
+        <span class="brand-mark">Linden</span>
+        <span class="brand-sub">Deutsch A1–A2</span>
+      </a>
+      <nav>
+        <button data-page="beranda" class="active">Beranda</button>
+        <button data-page="verben">Verben</button>
+        <button data-page="tata">Tata bahasa</button>
+        <button data-page="latihan">Latihan</button>
+        <button data-page="kuis">Kuis</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="page-beranda">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">Studio mandiri · Goethe A1 &amp; A2</p>
+          <h1>Belajar Jerman<br>dengan tenang.</h1>
+          <p class="lede">Materi tata bahasa sesuai cakupan Goethe, ratusan verba A1–A2 yang bisa dicari, contoh kalimat, audio pelafalan, latihan isi-kotak, dan kuis kosakata.</p>
+          <div class="stat-row">
+            <div class="stat"><b id="stat-verbs">—</b><span>verba siap pakai</span></div>
+            <div class="stat"><b id="stat-grammar">18</b><span>bab tata bahasa</span></div>
+            <div class="stat"><b>3</b><span>mode latihan</span></div>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <p class="eyebrow">Cara pakai 10 menit</p>
+          <h3>Satu verba, satu aturan, satu kuis.</h3>
+          <p>1. Buka Verben, putar audio, baca dua contoh.<br>2. Baca satu bab Tata bahasa.<br>3. Kerjakan 10 soal di Kuis.</p>
+        </aside>
+      </div>
+
+      <div class="section">
+        <div class="grid-4">
+          <article class="tile" data-page="verben">
+            <h3>Kamus verba</h3>
+            <small>Cari infinitif, lihat Präsens, Perfekt, dan dengar kalimat.</small>
+          </article>
+          <article class="tile" data-page="tata">
+            <h3>Tata bahasa</h3>
+            <small>Artikel, kasus, modal, verba terpisah, Perfekt, weil/dass.</small>
+          </article>
+          <article class="tile" data-page="latihan">
+            <h3>Latihan terarah</h3>
+            <small>Pola kalimat A1–A2 yang sering muncul di ujian.</small>
+          </article>
+          <article class="tile" data-page="kuis">
+            <h3>Kuis</h3>
+            <small>Arti verba, konjugasi du-form, dan grammar campur.</small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="page-verben" class="hidden">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">A1–A2 · regular, kuat, modal, terpisah</p>
+          <h2>Verben</h2>
+          <p>Ketik verba yang belum diketahui. Jika belum ada di daftar, aplikasi memberi pola regular plus tautan kamus.</p>
+        </div>
+        <div class="muted" id="verb-count"></div>
+      </div>
+
+      <div class="searchbar" style="margin-bottom:12px">
+        <input id="lookup" placeholder="Cari atau tebak verba, mis. mitbringen, verstehen, bügeln…" />
+        <button class="btn primary" id="lookup-btn">Buka</button>
+      </div>
+      <div class="searchbar">
+        <input id="q" placeholder="Saring daftar: arti, level, tipe…" />
+      </div>
+      <div class="filters" id="filters">
+        <button class="chip on" data-f="semua">Semua</button>
+        <button class="chip" data-f="A1">A1</button>
+        <button class="chip" data-f="A2">A2</button>
+        <button class="chip" data-f="modal">Modal</button>
+        <button class="chip" data-f="trennbar">Terpisah</button>
+        <button class="chip" data-f="unreg">Tidak regular</button>
+      </div>
+      <div class="verb-grid" id="verb-grid"></div>
+    </section>
+
+    <section id="page-tata" class="hidden">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Cakupan Goethe A1–A2</p>
+          <h2>Tata bahasa</h2>
+          <p>Bukan teori lengkap C1 — ini alat yang benar-benar dipakai di Start Deutsch 1 dan Goethe-Zertifikat A2.</p>
+        </div>
+      </div>
+      <div class="grammar-nav" id="grammar-nav"></div>
+      <article class="card grammar-article" id="grammar-article"></article>
+    </section>
+
+    <section id="page-latihan" class="hidden">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Latihan interaktif</p>
+          <h2>Tiga mode</h2>
+          <p>Kerjakan sepuluh soal per sesi. Audio tersedia di kuis kosakata dan konjugasi.</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Grammar drill</h3>
+          <p class="muted">Lubang dalam kalimat: kommen, kein, weil, Perfekt, Dativ.</p>
+          <button class="btn primary" id="start-drill">Mulai drill</button>
+        </article>
+        <article class="card">
+          <h3>Kuis kosakata</h3>
+          <p class="muted">Dengar / baca infinitif, pilih arti bahasa Indonesia.</p>
+          <button class="btn primary" id="start-vocab">Mulai kosakata</button>
+        </article>
+        <article class="card">
+          <h3>Konjugasi du</h3>
+          <p class="muted">Bentuk yang paling sering salah di A1: du fährst, du nimmst.</p>
+          <button class="btn primary" id="start-conj">Mulai konjugasi</button>
+        </article>
+      </div>
+      <div class="section quiz-box card" id="quiz-box" style="margin-top:18px"></div>
+    </section>
+
+    <section id="page-kuis" class="hidden">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Sesi singkat</p>
+          <h2>Kuis</h2>
+          <p>Halaman ini membuka mode yang sama. Pilih drill, kosakata, atau konjugasi.</p>
+        </div>
+      </div>
+      <p class="muted">Tiga mode yang sama seperti di Latihan. Hasil muncul di halaman Latihan.</p>
+      <p class="row">
+        <button class="btn primary" data-page="latihan" id="go-drill">Grammar drill</button>
+        <button class="btn" data-page="latihan" id="go-vocab">Kosakata</button>
+        <button class="btn" data-page="latihan" id="go-conj">Konjugasi</button>
+      </p>
+    </section>
+  </main>
+
+  <div class="modal-bg" id="modal">
+    <div class="modal">
+      <div class="row" style="justify-content:flex-end">
+        <button class="btn ghost" id="close-modal">Tutup</button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer>
+    Linden adalah bahan belajar mandiri. Cakupan mengikuti tema dan struktur Goethe-Zertifikat A1/A2, bukan salinan resmi soal ujian.
+    Audio memakai suara sistem Jerman di peramban Anda (bukan TTS robot bawaan aplikasi).
+  </footer>
+
+  <script src="js/verbs.js"></script>
+  <script src="js/grammar.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
